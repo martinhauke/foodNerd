@@ -1,0 +1,21 @@
+---
+type Ingredient = {
+    name: string
+    amount: number
+    unit: string | undefined
+}
+interface Props {
+    ingredients: Array<Ingredient>;
+}
+
+const { ingredients } = Astro.props;
+---
+
+<ul>
+    {ingredients.map(ingredient => (
+        <li>{ingredient.amount} {ingredient.unit} {ingredient.name}</li>
+    ))}
+</ul>
+
+<style>
+</style>

@@ -1,0 +1,16 @@
+---
+interface Props {
+    steps: Array<string>;
+}
+
+const { steps } = Astro.props;
+---
+
+<ul>
+    {steps.map(steps => (
+            <li>{steps}</li>
+    ))}
+</ul>
+
+<style>
+</style>

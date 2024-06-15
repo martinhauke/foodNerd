@@ -1,0 +1,27 @@
+---
+import IngredientList from "../../components/IngredientList.astro";
+export async function getStaticPaths() {
+    const recipes = await Astro.glob('../../content/recipes/*.md')
+
+    return recipes.map((it) => ({
+        params: {
+            name: it.frontmatter.id
+        },
+        props: {
+            recipe: it
+        },
+    }))
+}
+
+const { recipe } = Astro.props
+
+import Layout from "../../layouts/Layout.astro";
+import Steps from "../../components/Steps.astro";
+---
+<Layout>
+    <h1>{recipe.frontmatter.name}</h1>
+    <img src={recipe.frontmatter.image}>
+    <p>{recipe.frontmatter.description}</p>
+    <IngredientList ingredients={recipe.frontmatter.ingredients} />
+    <Steps steps={recipe.frontmatter.steps} />
+</Layout>

@@ -1,0 +1,46 @@
+---
+interface Props {
+	title: string;
+	body: string;
+	imgSrc: string
+	href: string;
+}
+
+const { href, title, body , imgSrc} = Astro.props;
+---
+
+<li class="list-item">
+	<a href={href}>
+		<img src={imgSrc}/>
+		<h2>
+			{title}
+		</h2>
+		<p>
+			{body}
+		</p>
+	</a>
+</li>
+<style>
+	a {
+		display: block;
+		text-decoration: none;
+		padding: 10px;
+		color: inherit;
+		//color: var(--pink);
+		color: var(--darkgreen);
+	}
+	.list-item {
+		list-style: none;
+		max-width: 400px;
+		width: 50%;
+		background: var(--flatgreen);
+	}
+	h2 {
+	}
+	img {
+		width: 100%;
+		object-fit: cover;
+		aspect-ratio: 2 / 1;
+		background: var(--flatpink);
+	}
+</style>
