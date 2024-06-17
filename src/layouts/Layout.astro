@@ -1,4 +1,5 @@
 ---
+import Header from "../components/Header.astro";
 interface Props {
 	title: string;
 	description: string;
@@ -18,8 +19,10 @@ const { title, description } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<header><a href="/" title="home">home</a> </header>
-		<slot />
+		<Header />
+		<div class="content">
+			<slot />
+		</div>
 	</body>
 </html>
 <style is:global>
@@ -32,14 +35,40 @@ const { title, description } = Astro.props;
 		--blue: #75B9BE;
 		--flax: #f7e3b4;
 		--flatpink: #FAE4E8;
+		--shadowpink: #885660;
 		--flatgreen: #B4CEB3;
 		--darkgreen: #1B2D2A;
 		--darkred: #582630;
 		--signalpink: #EF2D56;
+
+		--content-width: 800px;
 	}
 	html {
 		font-family: system-ui, sans-serif;
 		background: var(--flatpink);
 		color: var(--darkgreen);
+	}
+	body {
+		margin: 0;
+	}
+</style>
+<style is:global>
+	.content {
+		width: 100%;
+		max-width: var(--content-width);
+		margin: auto;
+	}
+	.image {
+		border: 10px double var(--darkred);
+		box-sizing: border-box;
+	}
+	.content-box {
+		display: block;
+		padding: 10px;
+		box-sizing: border-box;
+		margin: 30px 0;
+		box-shadow: 10px 10px var(--shadowpink);
+		border-width: 5px;
+		border-style: solid;
 	}
 </style>

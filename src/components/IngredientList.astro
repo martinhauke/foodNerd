@@ -10,12 +10,17 @@ interface Props {
 
 const { ingredients } = Astro.props;
 ---
-
-<ul>
-    {ingredients.map(ingredient => (
-        <li>{ingredient.amount} {ingredient.unit} {ingredient.name}</li>
-    ))}
-</ul>
-
+<div class="ingredients content-box">
+    <ul>
+        {ingredients.map(ingredient => (
+            <li>{ingredient.amount} {ingredient.unit} {ingredient.name}</li>
+        ))}
+    </ul>
+</div>
 <style>
+    .ingredients {
+        padding: 10px;
+        background: var(--flatgreen);
+        border-color: var(--darkgreen);
+    }
 </style>

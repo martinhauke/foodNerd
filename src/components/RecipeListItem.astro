@@ -9,9 +9,9 @@ interface Props {
 const { href, title, body , imgSrc} = Astro.props;
 ---
 
-<li class="list-item">
+<li class="list-item content-box">
 	<a href={href}>
-		<img src={imgSrc}/>
+		<img class="image" src={imgSrc}/>
 		<h2>
 			{title}
 		</h2>
@@ -34,6 +34,7 @@ const { href, title, body , imgSrc} = Astro.props;
 		max-width: 400px;
 		width: 50%;
 		background: var(--flatgreen);
+		border: 5px solid var(--darkgreen);
 	}
 	h2 {
 	}
@@ -42,5 +43,6 @@ const { href, title, body , imgSrc} = Astro.props;
 		object-fit: cover;
 		aspect-ratio: 2 / 1;
 		background: var(--flatpink);
+		border-color: var(--darkgreen);
 	}
 </style>

@@ -1,0 +1,19 @@
+---
+interface Props {
+    step: string
+}
+
+const { step } = Astro.props
+---
+
+<li class="step">
+    {step}
+</li>
+
+<style>
+    .step {
+        list-style: none;
+        background: var(--signalpink);
+        padding: 30px;
+    }
+</style>

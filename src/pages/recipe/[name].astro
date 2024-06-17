@@ -19,9 +19,24 @@ import Layout from "../../layouts/Layout.astro";
 import Steps from "../../components/Steps.astro";
 ---
 <Layout>
-    <h1>{recipe.frontmatter.name}</h1>
-    <img src={recipe.frontmatter.image}>
+    <img class="header-image image content-box" src={recipe.frontmatter.image}>
+    <h1 class="title content-box">{recipe.frontmatter.name}</h1>
     <p>{recipe.frontmatter.description}</p>
     <IngredientList ingredients={recipe.frontmatter.ingredients} />
     <Steps steps={recipe.frontmatter.steps} />
 </Layout>
+
+<style>
+    .title {
+        background: var(--signalpink);
+        color: var(--flatpink);
+        border-color: var(--darkred);
+    }
+    .header-image {
+        width: 100%;
+        padding: 0;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        margin-top: 10px;
+    }
+</style>
