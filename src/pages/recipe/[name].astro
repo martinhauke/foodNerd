@@ -1,29 +1,33 @@
 ---
 import IngredientList from "../../components/IngredientList.astro";
+import {getCollection, type CollectionEntry} from 'astro:content';
 export async function getStaticPaths() {
-    const recipes = await Astro.glob('../../content/recipes/*.md')
+    const recipes = await getCollection('recipes')
 
     return recipes.map((it) => ({
         params: {
-            name: it.frontmatter.id
+            name: it.data.id
         },
         props: {
             recipe: it
         },
     }))
 }
+interface Props {
+    recipe: CollectionEntry<'recipes'>
+}
 
-const { recipe } = Astro.props
+const {recipe} = Astro.props
 
 import Layout from "../../layouts/Layout.astro";
 import Steps from "../../components/Steps.astro";
 ---
-<Layout>
-    <img class="header-image image content-box" src={recipe.frontmatter.image}>
-    <h1 class="title content-box">{recipe.frontmatter.name}</h1>
-    <p>{recipe.frontmatter.description}</p>
-    <IngredientList ingredients={recipe.frontmatter.ingredients} />
-    <Steps steps={recipe.frontmatter.steps} />
+<Layout title={recipe.data.name} description={recipe.data.description}>
+    <img class="header-image image content-box" src={recipe.data.image}>
+    <h1 class="title content-box">{recipe.data.name}</h1>
+    <p>{recipe.data.description}</p>
+    <IngredientList ingredientGroups={recipe.data.ingredientGroups}/>
+    <Steps steps={recipe.data.steps}/>
 </Layout>
 
 <style>
@@ -32,6 +36,7 @@ import Steps from "../../components/Steps.astro";
         color: var(--flatpink);
         border-color: var(--darkred);
     }
+
     .header-image {
         width: 100%;
         padding: 0;

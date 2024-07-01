@@ -4,13 +4,13 @@ interface Props {
     steps: Array<string>;
 }
 
-const { steps } = Astro.props;
+const {steps} = Astro.props;
 ---
 
 <div class="steps content-box">
     <ul>
         {steps.map(step => (
-            <Step step={step} />
+                <Step step={step}/>
         ))}
     </ul>
 </div>
@@ -23,6 +23,7 @@ const { steps } = Astro.props;
         flex-direction: column;
         gap: 30px;
     }
+
     .steps {
         background: var(--darkred);
         color: var(--flatpink);

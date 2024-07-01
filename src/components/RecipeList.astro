@@ -1,16 +1,18 @@
 ---
 import RecipeListItem from "./RecipeListItem.astro";
-const recipes = await Astro.glob("../content/recipes/*.md")
+
+import {getCollection} from 'astro:content';
+const recipes = await getCollection('recipes')
 ---
 
 <ul>
     {recipes.map(recipe => (
-        <RecipeListItem
-            href={"/recipe/" + recipe.frontmatter.id}
-            title={recipe.frontmatter.name}
-            body={recipe.frontmatter.description}
-            imgSrc={recipe.frontmatter.image}
-        />
+            <RecipeListItem
+                    href={"/recipe/" + recipe.data.id}
+                    title={recipe.data.name}
+                    body={recipe.data.description ?? ''}
+                    imgSrc={recipe.data.image}
+            />
     ))}
 </ul>
 

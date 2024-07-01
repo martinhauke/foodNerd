@@ -1,19 +1,21 @@
 ---
-type Ingredient = {
-    name: string
-    amount: number
-    unit: string | undefined
-}
+import {type IngredientGroup} from "../content/config";
 interface Props {
-    ingredients: Array<Ingredient>;
+    ingredientGroups: Array<IngredientGroup>;
 }
 
-const { ingredients } = Astro.props;
+const {ingredientGroups} = Astro.props;
 ---
 <div class="ingredients content-box">
     <ul>
-        {ingredients.map(ingredient => (
-            <li>{ingredient.amount} {ingredient.unit} {ingredient.name}</li>
+        {ingredientGroups.map(group => (
+            <li>{group.name}
+                <ul>
+                    {group.ingredients.map(ingredient => (
+                        <li>{ingredient.amount} {ingredient.unit} {ingredient.name}</li>
+                    ))}
+                </ul>
+            </li>
         ))}
     </ul>
 </div>
