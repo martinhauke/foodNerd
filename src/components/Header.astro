@@ -2,27 +2,28 @@
 import Link from "./Link.astro";
 ---
 <header>
-    <div class="content">
-        <nav>
-            <Link href="/" title="home">Home</Link>
-        </nav>
-    </div>
+  <div class="content">
+    <nav>
+      <Link href=`${import.meta.env.BASE_URL}/` title="home">Home</Link>
+    </nav>
+  </div>
 </header>
 
 <style>
-    header {
-        margin: 0;
-        padding: 10px;
-        background: var(--red);
-        color: var(--flatpink);
-        border-bottom: 5px solid var(--blue);
-    }
-    nav {
-        z-index: 1;
-    }
+  header {
+    margin: 0;
+    padding: 10px;
+    background: var(--red);
+    color: var(--flatpink);
+    border-bottom: 5px solid var(--blue);
+  }
 
-    .content {
-        display: flex;
+  nav {
+    z-index: 1;
+  }
 
-    }
+  .content {
+    display: flex;
+
+  }
 </style>

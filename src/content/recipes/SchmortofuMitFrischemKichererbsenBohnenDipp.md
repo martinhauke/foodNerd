@@ -79,7 +79,7 @@ ingredientGroups:
         unit: TL
 
 image:
-  src: "/schmortofu.jpeg"
+  src: "schmortofu.jpeg"
   alt: Schmortofu mit Tomatenreis und Kichererbsen-Bohnen-Dip
 steps:
   - Wir fangen mit dem Reis an. Zuerst schälen und schneiden wir eine Zwiebel in möglichst kleine Stücke und braten sie

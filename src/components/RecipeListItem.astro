@@ -2,47 +2,47 @@
 import Link from "./Link.astro";
 import {type Image} from "../content/config";
 interface Props {
-    title: string;
-    body: string;
-    img: Image;
-    href: string;
+  title: string;
+  body: string;
+  img: Image;
+  href: string;
 }
 
 const {href, title, body, img} = Astro.props;
 ---
 
 <Link href={href} title={title} class="list-item">
-    <img class="image" src={img.src} alt={img.alt}/>
-    <h2>
-        {title}
-    </h2>
-    <p>
-        {body}
-    </p>
+  <img class="image" src={import.meta.env.BASE_URL + "/" + img.src} alt={img.alt}/>
+  <h2>
+    {title}
+  </h2>
+  <p>
+    {body}
+  </p>
 </Link>
 <style>
-    a {
-        display: block;
-        text-decoration: none;
-        padding: 10px;
-        color: var(--darkgreen);
-    }
+  a {
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    color: var(--darkgreen);
+  }
 
-    .list-item {
-        max-width: 400px;
-        width: 50%;
-        background: var(--flatgreen);
-        border: 2px solid var(--darkgreen);
-    }
+  .list-item {
+    max-width: 400px;
+    width: 50%;
+    background: var(--flatgreen);
+    border: 2px solid var(--darkgreen);
+  }
 
-    h2 {
-    }
+  h2 {
+  }
 
-    img {
-        width: 100%;
-        object-fit: cover;
-        aspect-ratio: 2 / 1;
-        background: var(--flatpink);
-        border-color: var(--darkgreen);
-    }
+  img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 2 / 1;
+    background: var(--flatpink);
+    border-color: var(--darkgreen);
+  }
 </style>
