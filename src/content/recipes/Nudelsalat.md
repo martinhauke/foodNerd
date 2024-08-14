@@ -1,6 +1,5 @@
 ---
 id: cremiger-nudelsalat
-popel: bla
 name: Cremiger Nudelsalat
 description: Fruchtiger Nudelsalat mit Balsamico, Tomaten und Basilikum
 ingredientGroups:
@@ -56,7 +55,9 @@ ingredientGroups:
       - name: getrockneter Basilikum
         amount: 2
         unit: tl
-image: "/public/cremiger-nudelsalat.jpeg"
+image:
+  src: "/public/cremiger-nudelsalat.jpeg"
+  alt: "Nudelsalat"
 steps:
   - Nudeln in Salzwasser al dente kochen.
   - Zwiebel schälen, in feine Würfel schneiden

@@ -1,0 +1,23 @@
+---
+import {type IngredientGroup} from "../../content/config";
+import IngredientListItem from "./IngredientListItem.astro";
+interface Props {
+  ingredientGroup: IngredientGroup;
+}
+
+const {ingredientGroup} = Astro.props;
+---
+<li class="group">
+  {ingredientGroup.name !== "default" ? <h2>{ingredientGroup.name}</h2> : null}
+  <ul>
+    {ingredientGroup.ingredients.map(ingredient => (
+      <IngredientListItem ingredient={ingredient} />
+    ))}
+  </ul>
+</li>
+
+<style>
+  li.group {
+    list-style: none;
+  }
+</style>

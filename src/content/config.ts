@@ -4,13 +4,19 @@ import {z, defineCollection} from 'astro:content';
 const ingredient = z.object({
     name: z.string(),
     note: z.string().optional(),
-    amount: z.number().positive(),
-    unit: z.string().optional()
+    amount: z.number().positive().optional(),
+    unit: z.string().optional(),
 })
 
 const ingredientGroup = z.object({
     name: z.string(),
-    ingredients: z.array(ingredient)
+    ingredients: z.array(ingredient),
+})
+
+const image = z.object({
+  src: z.string(),
+  alt: z.string(),
+  title: z.string().optional(),
 })
 
 const recipe = z.object({
@@ -18,8 +24,9 @@ const recipe = z.object({
     name: z.string(),
     description: z.string().optional(),
     ingredientGroups: z.array(ingredientGroup),
-    image: z.string(),
-    steps: z.array(z.string())
+    image: image,
+    steps: z.array(z.string()),
+    isPublic: z.boolean().default(false),
 })
 
 // 2. Define a `type` and `schema` for each collection
@@ -33,4 +40,7 @@ export const collections = {
     'recipes': recipeCollection,
 };
 
+export type Ingredient = z.infer<typeof ingredient>
 export type IngredientGroup = z.infer<typeof ingredientGroup>
+export type Image = z.infer<typeof image>
+

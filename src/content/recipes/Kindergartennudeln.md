@@ -22,7 +22,9 @@ ingredientGroups:
       - name: Agavendicksaft
         amount: 2
         unit: tbsp
-image: "/public/kindergartennudeln.jpeg"
+image:
+  src: "/public/kindergartennudeln.jpeg"
+  alt: Kindergartennudeln
 steps:
   - 1,5 Liter Wasser in einen Topf geben, mit reichlich Salz würzen und zum Kochen bringen.
   - Zwiebel schälen, in feine Würfel schneiden und in einem Topf mit reichlich Öl anschwitzen.

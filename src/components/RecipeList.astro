@@ -6,21 +6,21 @@ const recipes = await getCollection('recipes')
 ---
 
 <ul>
-    {recipes.map(recipe => (
-            <RecipeListItem
-                    href={"/recipe/" + recipe.data.id}
-                    title={recipe.data.name}
-                    body={recipe.data.description ?? ''}
-                    imgSrc={recipe.data.image}
-            />
-    ))}
+  {recipes.filter(recipe => recipe.data.isPublic).map(recipe => (
+    <RecipeListItem
+      href={"/recipe/" + recipe.data.id}
+      title={recipe.data.name}
+      body={recipe.data.description ?? ''}
+      img={recipe.data.image}
+    />
+  ))}
 </ul>
 
 <style>
-    ul {
-        display: flex;
-        gap: 20px;
-        margin: 0;
-        padding: 10px;
-    }
+  ul {
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 10px;
+  }
 </style>

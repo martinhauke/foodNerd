@@ -1,0 +1,11 @@
+---
+import {type Ingredient} from "../../content/config";
+interface Props {
+  ingredient: Ingredient;
+}
+
+const {ingredient} = Astro.props
+---
+<li>
+  {ingredient.amount} {ingredient.unit} {ingredient.name}
+</li>

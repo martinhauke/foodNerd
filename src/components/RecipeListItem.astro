@@ -1,41 +1,38 @@
 ---
+import Link from "./Link.astro";
+import {type Image} from "../content/config";
 interface Props {
     title: string;
     body: string;
-    imgSrc: string
+    img: Image;
     href: string;
 }
 
-const {href, title, body, imgSrc} = Astro.props;
+const {href, title, body, img} = Astro.props;
 ---
 
-<li class="list-item content-box">
-    <a href={href}>
-        <img class="image" src={imgSrc}/>
-        <h2>
-            {title}
-        </h2>
-        <p>
-            {body}
-        </p>
-    </a>
-</li>
+<Link href={href} title={title} class="list-item">
+    <img class="image" src={img.src} alt={img.alt}/>
+    <h2>
+        {title}
+    </h2>
+    <p>
+        {body}
+    </p>
+</Link>
 <style>
     a {
         display: block;
         text-decoration: none;
         padding: 10px;
-        color: inherit;
-        //color: var(--pink);
         color: var(--darkgreen);
     }
 
     .list-item {
-        list-style: none;
         max-width: 400px;
         width: 50%;
         background: var(--flatgreen);
-        border: 5px solid var(--darkgreen);
+        border: 2px solid var(--darkgreen);
     }
 
     h2 {

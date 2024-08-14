@@ -1,19 +1,35 @@
 ---
 interface Props {
-    step: string
+  step: string
 }
 
 const {step} = Astro.props
 ---
 
 <li class="step">
-    {step}
+  {step}
 </li>
 
 <style>
-    .step {
-        list-style: none;
-        background: var(--signalpink);
-        padding: 30px;
+  .step {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    counter-increment: steps;
+    list-style: none;
+    //background: var(--signalpink);
+    padding: 20px;
+    line-height: 1.5em;
+
+    &:not(:first-child) {
+      border-top: 5px dotted var(--darkred);
     }
+
+    &:before {
+      content: counter(steps);
+      display: block;
+      padding-right: 30px;
+      font-size: 2em;
+    }
+  }
 </style>

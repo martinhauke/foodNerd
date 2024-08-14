@@ -1,47 +1,52 @@
 ---
-import IngredientList from "../../components/IngredientList.astro";
+import IngredientList from "../../components/ingredients/IngredientList.astro";
 import {getCollection, type CollectionEntry} from 'astro:content';
 export async function getStaticPaths() {
-    const recipes = await getCollection('recipes')
+  const recipes = await getCollection('recipes')
 
-    return recipes.map((it) => ({
-        params: {
-            name: it.data.id
-        },
-        props: {
-            recipe: it
-        },
-    }))
+  return recipes.filter(recipe => recipe.data.isPublic).map((it) => ({
+    params: {
+      name: it.data.id
+    },
+    props: {
+      recipe: it
+    },
+  }))
 }
 interface Props {
-    recipe: CollectionEntry<'recipes'>
+  recipe: CollectionEntry<'recipes'>
 }
 
 const {recipe} = Astro.props
 
 import Layout from "../../layouts/Layout.astro";
 import Steps from "../../components/Steps.astro";
+import ContentBox from "../../components/ContentBox.astro";
 ---
 <Layout title={recipe.data.name} description={recipe.data.description}>
-    <img class="header-image image content-box" src={recipe.data.image}>
-    <h1 class="title content-box">{recipe.data.name}</h1>
-    <p>{recipe.data.description}</p>
-    <IngredientList ingredientGroups={recipe.data.ingredientGroups}/>
-    <Steps steps={recipe.data.steps}/>
+  <ContentBox class="title"><h1>{recipe.data.name}</h1></ContentBox>
+  <img class="header-image image" src={recipe.data.image.src} alt={recipe.data.image.alt}>
+  <p>{recipe.data.description}</p>
+  <IngredientList ingredientGroups={recipe.data.ingredientGroups}/>
+  <Steps steps={recipe.data.steps}/>
 </Layout>
 
 <style>
-    .title {
-        background: var(--signalpink);
-        color: var(--flatpink);
-        border-color: var(--darkred);
+  .title {
+    background: var(--pink);
+    color: var(--red);
+    margin-bottom: 0;
+    padding: 20px;
+    h1 {
+      padding: 0;
+      margin: 0;
     }
+  }
 
-    .header-image {
-        width: 100%;
-        padding: 0;
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
-        margin-top: 10px;
-    }
+  .header-image {
+    width: 100%;
+    padding: 0;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
 </style>

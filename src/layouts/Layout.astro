@@ -20,26 +20,34 @@ const { title, description } = Astro.props;
 	</head>
 	<body>
 		<Header />
-		<div class="content">
+		<main class="content">
 			<slot />
-		</div>
+		</main>
 	</body>
 </html>
 <style is:global>
 	:root {
 		--lime: #DBF4A7;
 		--yellow: #FCD581;
-		--pink: #F7B2B7;
-		--red: #B0413E;
+		//--pink: #F7B2B7;
+		--pink: oklch(82.94% 0.081 14.16);
+		//--red: #B0413E;
+		--red: oklch(52.85% 0.146 24.97);
 		--dark: #424B54;
 		--blue: #75B9BE;
-		--flax: #f7e3b4;
-		--flatpink: #FAE4E8;
-		--shadowpink: #885660;
-		--flatgreen: #B4CEB3;
-		--darkgreen: #1B2D2A;
+		//--flax: #f7e3b4;
+		--flax: oklch(92.06% 0.065 87.67);
+		//--flatpink: #FAE4E8;
+		--flatpink: oklch(93.77% 0.025 5.1);
+		//--shadowpink: #885660;
+		--shadowpink: oklch(51.17% 0.068 6.69);
+		//--flatgreen: #B4CEB3;
+		--flatgreen: oklch(82.46% 0.047 144.15);
+		//--darkgreen: #1B2D2A;
+		--darkgreen: oklch(28.04% 0.024 182.93);
 		--darkred: #582630;
-		--signalpink: #EF2D56;
+		//--signalpink: #EF2D56;
+		--signalpink: oklch(62.19% 0.225 16.12);
 
 		--content-width: 800px;
 	}
@@ -51,24 +59,29 @@ const { title, description } = Astro.props;
 	body {
 		margin: 0;
 	}
+	h1,
+	h2,
+	h3 {
+		font-family: "Ubuntu Mono",
+		"Roboto Mono", "DejaVu Sans Mono",
+		monospace;
+	}
+
+	h1 {
+		font-size: 3em;
+	}
 </style>
 <style is:global>
 	.content {
 		width: 100%;
 		max-width: var(--content-width);
 		margin: auto;
+    padding-bottom: 10px;
+	}
+	main.content {
+	  padding-bottom: 50px;
 	}
 	.image {
-		border: 10px double var(--darkred);
 		box-sizing: border-box;
-	}
-	.content-box {
-		display: block;
-		padding: 10px;
-		box-sizing: border-box;
-		margin: 30px 0;
-		box-shadow: 10px 10px var(--shadowpink);
-		border-width: 5px;
-		border-style: solid;
 	}
 </style>

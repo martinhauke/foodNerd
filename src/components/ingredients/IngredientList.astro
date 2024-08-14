@@ -1,0 +1,34 @@
+---
+import {type IngredientGroup} from "../../content/config";
+import ContentBox from "../ContentBox.astro";
+import Group from "./IngredientGroup.astro";
+interface Props {
+  ingredientGroups: Array<IngredientGroup>;
+}
+
+const {ingredientGroups} = Astro.props;
+---
+<ContentBox class="ingredients" title="Zutaten">
+  <ul>
+    {ingredientGroups.map(group => (
+      <Group ingredientGroup={group}/>
+    ))}
+  </ul>
+</ContentBox>
+<style>
+  .ingredients {
+    background: var(--flatgreen);
+    border-color: var(--darkgreen);
+
+    h1 {
+      background: linear-gradient(-90deg, transparent, var(--darkgreen));
+      background: var(--darkgreen);
+      color: var(--flatgreen);
+    }
+  }
+
+  ul {
+    padding: 0 20px 20px;
+    margin: 0;
+  }
+</style>
