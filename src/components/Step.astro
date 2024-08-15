@@ -19,6 +19,9 @@ const {step} = Astro.props
     list-style: none;
     //background: var(--signalpink);
     padding: 20px;
+    @media screen and (max-width: 500px) {
+      padding: 20px 10px;
+    }
     line-height: 1.5em;
 
     &:not(:first-child) {
@@ -28,8 +31,13 @@ const {step} = Astro.props
     &:before {
       content: counter(steps);
       display: block;
-      padding-right: 30px;
       font-size: 2em;
+      padding-right: 30px;
+    }
+    @media screen and (max-width: 500px) {
+      &:before {
+        padding-right: 20px;
+      }
     }
   }
 </style>
