@@ -29,10 +29,13 @@ const {href, title, body, img} = Astro.props;
   }
 
   .list-item {
+    width: calc(50% - 10px);
     max-width: 400px;
-    width: 50%;
     background: var(--flatgreen);
     border: 2px solid var(--darkgreen);
+    @media screen and (max-width: 800px) {
+      width: 100%;
+    }
   }
 
   h2 {
