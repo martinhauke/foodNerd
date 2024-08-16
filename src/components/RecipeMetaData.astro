@@ -50,6 +50,11 @@ const {metaInformation, isCompactView} = Astro.props;
   .value {
     font-weight: bold;
   }
+  @media screen and (max-width: 800px){
+    .label {
+      display: none;
+    }
+  }
   .meta-information--compact-view {
     margin: 0;
     section {
