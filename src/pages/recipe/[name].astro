@@ -22,11 +22,13 @@ const {recipe} = Astro.props
 import Layout from "../../layouts/Layout.astro";
 import Steps from "../../components/Steps.astro";
 import ContentBox from "../../components/ContentBox.astro";
+import RecipeMetaData from "../../components/RecipeMetaData.astro";
 ---
 <Layout title={recipe.data.name} description={recipe.data.description}>
   <ContentBox class="title"><h1>{recipe.data.name}</h1></ContentBox>
   <img class="header-image image" src={import.meta.env.BASE_URL + "/" + recipe.data.image.src}
        alt={recipe.data.image.alt}>
+  <RecipeMetaData metaInformation={recipe.data.metaInformation} />
   <p>{recipe.data.description}</p>
   <IngredientList ingredientGroups={recipe.data.ingredientGroups}/>
   <Steps steps={recipe.data.steps}/>
@@ -49,6 +51,7 @@ import ContentBox from "../../components/ContentBox.astro";
   }
 
   .header-image {
+    display: block;
     width: 100%;
     padding: 0;
     aspect-ratio: 16 / 9;

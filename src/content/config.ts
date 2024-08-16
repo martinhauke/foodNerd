@@ -14,9 +14,16 @@ const ingredientGroup = z.object({
 })
 
 const image = z.object({
-  src: z.string(),
-  alt: z.string(),
-  title: z.string().optional(),
+    src: z.string(),
+    alt: z.string(),
+    title: z.string().optional(),
+})
+
+const metaInformation = z.object({
+    numberOfServings: z.number(),
+    timeNeeded: z.string().regex(/(\d+\s)(min|h)/),
+    kcalPerServing: z.number().optional(),
+    difficulty: z.enum(["einfach", "mittel", "schwer"])
 })
 
 const recipe = z.object({
@@ -27,6 +34,7 @@ const recipe = z.object({
     image: image,
     steps: z.array(z.string()),
     isPublic: z.boolean().default(false),
+    metaInformation: metaInformation,
 })
 
 // 2. Define a `type` and `schema` for each collection
@@ -43,4 +51,5 @@ export const collections = {
 export type Ingredient = z.infer<typeof ingredient>
 export type IngredientGroup = z.infer<typeof ingredientGroup>
 export type Image = z.infer<typeof image>
+export type MetaInformation = z.infer<typeof metaInformation>
 
