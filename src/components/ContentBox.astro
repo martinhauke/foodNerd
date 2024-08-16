@@ -6,7 +6,7 @@ interface Props {
 
 const {class: additionalClass, title: title, ...rest} = Astro.props;
 ---
-<div class:list={["content-box", additionalClass]} {...rest}>
+<div class:list={["content-box", additionalClass, title ? "with-title" : "no-title"]} {...rest}>
   {title && <h1 class="heading">{title}</h1>}
   <section>
     <slot/>
@@ -24,6 +24,9 @@ const {class: additionalClass, title: title, ...rest} = Astro.props;
     section {
       padding: 10px;
     }
+  }
+  .no-title section {
+    width: 100%;
   }
 
   .heading {

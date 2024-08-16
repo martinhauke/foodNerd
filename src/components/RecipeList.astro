@@ -12,6 +12,7 @@ const recipes = await getCollection('recipes')
       title={recipe.data.name}
       body={recipe.data.description ?? ''}
       img={recipe.data.image}
+      metaInformation={recipe.data.metaInformation}
     />
   ))}
 </ul>

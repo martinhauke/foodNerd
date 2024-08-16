@@ -1,0 +1,64 @@
+---
+import ContentBox from "./ContentBox.astro";
+import {type MetaInformation} from "../content/config";
+
+// Font Awesome
+import { library, icon } from "@fortawesome/fontawesome-svg-core";
+import { faUsers, faClock } from "@fortawesome/free-solid-svg-icons";
+// Declare all the icons you plan on using
+library.add(faUsers, faClock);
+// Instantiate the icon with the icon function
+const numberOfServingsIcon = icon({ prefix: "fas", iconName: faUsers.iconName });
+const timeNeededIcon = icon({ prefix: "fas", iconName: faClock.iconName });
+
+interface Props {
+  metaInformation: MetaInformation;
+  isCompactView?: boolean;
+}
+
+const {metaInformation, isCompactView} = Astro.props;
+---
+
+<ContentBox class={isCompactView ? "meta-information--compact-view" : "meta-information"}>
+  <ul class={isCompactView ? "compact-view" : ""}>
+    <li><Fragment set:html={numberOfServingsIcon.html}/><span class="label">Portionen:</span><span class="value">{metaInformation.numberOfServings}</span></li>
+    <li><Fragment set:html={timeNeededIcon.html}/><span class="label">Zubereitungszeit:</span><span class="value">{metaInformation.timeNeeded}</span></li>
+    <li><span class="label">Schwierigkeit:</span><span class="value">{metaInformation.difficulty}</span></li>
+    {metaInformation.kcalPerServing && <li><span class="label">Energiegehalt pro Portion:</span><span class="value">{metaInformation.kcalPerServing} kcal</span></li>}
+  </ul>
+</ContentBox>
+
+<style>
+  .meta-information {
+    background-color: var(--flatgreen);
+    color: var(--darkgreen);
+    margin: 0;
+  }
+  ul {
+    display: flex;
+    margin: 0;
+    padding: 10px 20px;
+    justify-content: space-between;
+  }
+  li {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 10px;
+    align-items: center;
+  }
+  .value {
+    font-weight: bold;
+  }
+  .meta-information--compact-view {
+    margin: 0;
+    section {
+      padding: 0;
+      background-color: var(--darkgreen);
+      color: var(--flatgreen);
+    }
+    .label {
+      display: none;
+    }
+  }
+</style>

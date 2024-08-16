@@ -2,6 +2,10 @@
 id: cremiger-nudelsalat
 name: Cremiger Nudelsalat
 description: Fruchtiger Nudelsalat mit Balsamico, Tomaten und Basilikum
+metaInformation:
+  timeNeeded: 40 min
+  difficulty: "einfach"
+  numberOfServings: 4
 ingredientGroups:
   - name: default
     ingredients:

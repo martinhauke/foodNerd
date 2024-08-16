@@ -2,6 +2,10 @@
 id: kindergartennudeln
 name: Kindergartennudeln
 description: Einfaches Pastarezept mit nostalgischem Flair.
+metaInformation:
+  timeNeeded: 20 min
+  difficulty: "einfach"
+  numberOfServings: 4
 ingredientGroups:
   - name: default
     ingredients:

@@ -2,6 +2,10 @@
 id: kichererbsencurry
 name: Kichererbsencurry
 description: Cremiges Curry mit Kichererbsen, Kokosmilch und Ofentofu.
+metaInformation:
+  timeNeeded: 1 h
+  difficulty: "mittel"
+  numberOfServings: 4
 ingredientGroups:
   - name: default
     ingredients:
