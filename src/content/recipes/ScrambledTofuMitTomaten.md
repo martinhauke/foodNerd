@@ -18,6 +18,9 @@ ingredientGroups:
       - name: Cocktailtomaten
         amount: 200
         unit: g
+      - name: Vegane Mayonnaise
+        amount: 4
+        unit: EL
       - name: Kala Namak (Schwarzsalz)
         amount: 2
         unit: TL
