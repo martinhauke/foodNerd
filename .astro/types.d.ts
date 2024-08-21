@@ -126,30 +126,30 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"recipes": {
-"Kichererbsencurry.md": {
-	id: "Kichererbsencurry.md";
-  slug: "kichererbsencurry";
+"de/SchmortofuMitFrischemKichererbsenBohnenDipp.md": {
+	id: "de/SchmortofuMitFrischemKichererbsenBohnenDipp.md";
+  slug: "de/schmortofumitfrischemkichererbsenbohnendipp";
   body: string;
   collection: "recipes";
   data: InferEntrySchema<"recipes">
 } & { render(): Render[".md"] };
-"Kindergartennudeln.md": {
-	id: "Kindergartennudeln.md";
-  slug: "kindergartennudeln";
+"de/ScrambledTofuMitTomaten.md": {
+	id: "de/ScrambledTofuMitTomaten.md";
+  slug: "de/scrambledtofumittomaten";
   body: string;
   collection: "recipes";
   data: InferEntrySchema<"recipes">
 } & { render(): Render[".md"] };
-"Nudelsalat.md": {
-	id: "Nudelsalat.md";
-  slug: "nudelsalat";
+"en/SchmortofuMitFrischemKichererbsenBohnenDipp.md": {
+	id: "en/SchmortofuMitFrischemKichererbsenBohnenDipp.md";
+  slug: "en/schmortofumitfrischemkichererbsenbohnendipp";
   body: string;
   collection: "recipes";
   data: InferEntrySchema<"recipes">
 } & { render(): Render[".md"] };
-"SchmortofuMitFrischemKichererbsenBohnenDipp.md": {
-	id: "SchmortofuMitFrischemKichererbsenBohnenDipp.md";
-  slug: "schmortofumitfrischemkichererbsenbohnendipp";
+"en/ScrambledTofuMitTomaten.md": {
+	id: "en/ScrambledTofuMitTomaten.md";
+  slug: "en/scrambledtofumittomaten";
   body: string;
   collection: "recipes";
   data: InferEntrySchema<"recipes">

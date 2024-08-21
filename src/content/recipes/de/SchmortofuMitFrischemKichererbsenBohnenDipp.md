@@ -2,10 +2,11 @@
 id: schmortofu
 name: Schmortofu mit frischem Kirchererbsen-Bohnen-Dipp
 description: Schnelles Sommergericht mit vielen Proteinen
+lang: de
 isPublic: true
 metaInformation:
     numberOfServings: 4
-    difficulty: "einfach"
+    difficulty: difficulty.easy
     timeNeeded: "30 min"
 ingredientGroups:
   - name: Tomatenreis

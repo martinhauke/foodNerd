@@ -23,13 +23,16 @@ const metaInformation = z.object({
     numberOfServings: z.number(),
     timeNeeded: z.string().regex(/(\d+\s)(min|h)/),
     kcalPerServing: z.number().optional(),
-    difficulty: z.enum(["einfach", "mittel", "schwer"])
+    difficulty: z.enum(["difficulty.easy", "difficulty.middle", "difficulty.hard"])
 })
+
+const language = z.enum(["de", "en"])
 
 const recipe = z.object({
     id: z.string(),
     name: z.string(),
     description: z.string().optional(),
+    lang: language,
     ingredientGroups: z.array(ingredientGroup),
     image: image,
     steps: z.array(z.string()),
