@@ -31,6 +31,8 @@ const language = z.enum(["de", "en"])
 const recipe = z.object({
     id: z.string(),
     name: z.string(),
+    pubDate: z.date(),
+    editDate: z.date(),
     description: z.string().optional(),
     lang: language,
     ingredientGroups: z.array(ingredientGroup),

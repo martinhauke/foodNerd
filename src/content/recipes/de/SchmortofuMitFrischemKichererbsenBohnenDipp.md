@@ -4,6 +4,8 @@ name: Schmortofu mit frischem Kirchererbsen-Bohnen-Dipp
 description: Schnelles Sommergericht mit vielen Proteinen
 lang: de
 isPublic: true
+pubDate: 2024-08-14
+editDate: 2024-08-14
 metaInformation:
     numberOfServings: 4
     difficulty: difficulty.easy
