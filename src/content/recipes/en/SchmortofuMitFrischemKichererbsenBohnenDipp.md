@@ -4,6 +4,8 @@ name: Roasted Tofu with fresh Chickpea-Bean-Dip
 description: Fast summer meal with lots of protein
 lang: en
 isPublic: true
+pubDate: 2024-08-14
+editDate: 2024-08-14
 metaInformation:
     numberOfServings: 4
     difficulty: difficulty.easy

@@ -4,6 +4,8 @@ name: Rührtofu mit Tomaten
 description: Schnelles und leckeres Rezept zum Frühstück.
 lang: de
 isPublic: true
+pubDate: 2024-08-18
+editDate: 2024-08-18
 metaInformation:
     numberOfServings: 4
     difficulty: difficulty.easy

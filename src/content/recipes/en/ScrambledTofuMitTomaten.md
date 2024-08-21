@@ -4,6 +4,8 @@ name: Scrambled Tofu with Tomatoes
 description: Quick and tasty breakfast idea
 lang: en
 isPublic: true
+pubDate: 2024-08-18
+editDate: 2024-08-18
 metaInformation:
     numberOfServings: 4
     difficulty: difficulty.easy
