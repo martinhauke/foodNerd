@@ -1,15 +1,18 @@
 ---
 import Header from "../components/Header.astro";
+import {getLangFromUrl} from '../i18n/utils';
+import {Astro} from "astro/env";
+
+const lang = getLangFromUrl(Astro.url);
 interface Props {
 	title: string
 	description?: string
 }
-
 const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />

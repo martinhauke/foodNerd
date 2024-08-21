@@ -1,14 +1,18 @@
 ---
 import Step from "./Step.astro";
 import ContentBox from "./ContentBox.astro";
+import {getLangFromUrl,useTranslations} from "../i18n/utils";
+import {Astro} from "astro/env";
 interface Props {
   steps: Array<string>;
 }
 
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 const {steps} = Astro.props;
 ---
 
-<ContentBox class="steps" title="Zubereitung">
+<ContentBox class="steps" title={t("recipe.steps")}>
   <ul>
     {steps.map(step => (
       <Step step={step}/>

@@ -2,10 +2,11 @@
 id: scrambleTofu
 name: Rührtofu mit Tomaten
 description: Schnelles und leckeres Rezept zum Frühstück.
+lang: de
 isPublic: true
 metaInformation:
     numberOfServings: 4
-    difficulty: "einfach"
+    difficulty: difficulty.easy
     timeNeeded: "20 min"
 ingredientGroups:
   - name: default

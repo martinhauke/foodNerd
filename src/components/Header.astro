@@ -1,11 +1,17 @@
 ---
 import Link from "./Link.astro";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import LanguagePicker from "./LanguagePicker.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 <header>
   <div class="content">
     <nav>
-      <Link href=`${import.meta.env.BASE_URL}/` title="home">Home</Link>
+      <Link href=`${import.meta.env.BASE_URL}/${lang}/` title="home">{t("nav.home")}</Link>
     </nav>
+    <LanguagePicker />
   </div>
 </header>
 
@@ -23,10 +29,13 @@ import Link from "./Link.astro";
 
   nav {
     z-index: 1;
+    display: flex;
+    align-items: center;
   }
 
   .content {
     display: flex;
-
+    justify-content: space-between;
+    padding: 0 5px 10px;
   }
 </style>

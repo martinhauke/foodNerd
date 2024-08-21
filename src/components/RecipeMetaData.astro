@@ -5,6 +5,9 @@ import {type MetaInformation} from "../content/config";
 // Font Awesome
 import { library, icon } from "@fortawesome/fontawesome-svg-core";
 import { faUsers, faClock } from "@fortawesome/free-solid-svg-icons";
+
+import {getLangFromUrl, useTranslations} from "../i18n/utils";
+import {Astro} from "astro/env";
 // Declare all the icons you plan on using
 library.add(faUsers, faClock);
 // Instantiate the icon with the icon function
@@ -16,14 +19,16 @@ interface Props {
   isCompactView?: boolean;
 }
 
-const {metaInformation, isCompactView} = Astro.props;
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const {metaInformation, isCompactView} = Astro.props
 ---
 
 <ContentBox class={isCompactView ? "meta-information--compact-view" : "meta-information"}>
   <ul class={isCompactView ? "compact-view" : ""}>
-    <li><Fragment set:html={numberOfServingsIcon.html}/><span class="label">Portionen:</span><span class="value">{metaInformation.numberOfServings}</span></li>
-    <li><Fragment set:html={timeNeededIcon.html}/><span class="label">Zubereitungszeit:</span><span class="value">{metaInformation.timeNeeded}</span></li>
-    <li><span class="label">Schwierigkeit:</span><span class="value">{metaInformation.difficulty}</span></li>
+    <li><Fragment set:html={numberOfServingsIcon.html}/><span class="label">{t("recipe.servings")}:</span><span class="value">{metaInformation.numberOfServings}</span></li>
+    <li><Fragment set:html={timeNeededIcon.html}/><span class="label">{t("recipe.time")}:</span><span class="value">{metaInformation.timeNeeded}</span></li>
+    <li><span class="label">{t("recipe.difficulty")}:</span><span class="value">{t(metaInformation.difficulty)}</span></li>
     {metaInformation.kcalPerServing && <li><span class="label">Energiegehalt pro Portion:</span><span class="value">{metaInformation.kcalPerServing} kcal</span></li>}
   </ul>
 </ContentBox>

@@ -1,0 +1,38 @@
+---
+import { languages } from '../i18n/ui';
+import {Astro} from "astro/env";
+const url = Astro.url.pathname
+---
+<ul>
+  {Object.entries(languages).map(([lang, label]) => (
+    <li>
+      <a href={url.replace(/\/(en|de)\//, `/${lang}/`)}>{label}</a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  ul {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+  }
+
+  a {
+    position: relative;
+    display: block;
+    padding: 10px;
+
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid var(--darkred);
+    color: var(--darkred);
+    background: var(--flatpink);
+    box-shadow: 5px 5px 0;
+  }
+
+  a:hover {
+    transform: translate(5px, 5px);
+    box-shadow: none;
+  }
+</style>
