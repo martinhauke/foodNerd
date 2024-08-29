@@ -126,6 +126,13 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"recipes": {
+"de/LazyBurger.md": {
+	id: "de/LazyBurger.md";
+  slug: "de/lazyburger";
+  body: string;
+  collection: "recipes";
+  data: InferEntrySchema<"recipes">
+} & { render(): Render[".md"] };
 "de/SchmortofuMitFrischemKichererbsenBohnenDipp.md": {
 	id: "de/SchmortofuMitFrischemKichererbsenBohnenDipp.md";
   slug: "de/schmortofumitfrischemkichererbsenbohnendipp";
@@ -136,6 +143,13 @@ declare module 'astro:content' {
 "de/ScrambledTofuMitTomaten.md": {
 	id: "de/ScrambledTofuMitTomaten.md";
   slug: "de/scrambledtofumittomaten";
+  body: string;
+  collection: "recipes";
+  data: InferEntrySchema<"recipes">
+} & { render(): Render[".md"] };
+"en/LazyBurger.md": {
+	id: "en/LazyBurger.md";
+  slug: "en/lazyburger";
   body: string;
   collection: "recipes";
   data: InferEntrySchema<"recipes">
