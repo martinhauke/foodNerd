@@ -147,6 +147,13 @@ declare module 'astro:content' {
   collection: "recipes";
   data: InferEntrySchema<"recipes">
 } & { render(): Render[".md"] };
+"de/riceWithRoastedPeanutVegetables.md": {
+	id: "de/riceWithRoastedPeanutVegetables.md";
+  slug: "de/ricewithroastedpeanutvegetables";
+  body: string;
+  collection: "recipes";
+  data: InferEntrySchema<"recipes">
+} & { render(): Render[".md"] };
 "en/LazyBurger.md": {
 	id: "en/LazyBurger.md";
   slug: "en/lazyburger";
@@ -164,6 +171,13 @@ declare module 'astro:content' {
 "en/ScrambledTofuMitTomaten.md": {
 	id: "en/ScrambledTofuMitTomaten.md";
   slug: "en/scrambledtofumittomaten";
+  body: string;
+  collection: "recipes";
+  data: InferEntrySchema<"recipes">
+} & { render(): Render[".md"] };
+"en/riceWithRoastedPeanutVegetables.md": {
+	id: "en/riceWithRoastedPeanutVegetables.md";
+  slug: "en/ricewithroastedpeanutvegetables";
   body: string;
   collection: "recipes";
   data: InferEntrySchema<"recipes">
