@@ -46,9 +46,9 @@ ingredientGroups:
         amount: 600
         unit: g
       - name: Zucchini
-        amount: 2
+        amount: 1
       - name: Paprika
-        amount: 2
+        amount: 1
       - name: Zwiebeln
         amount: 2
       - name: Knoblauch
