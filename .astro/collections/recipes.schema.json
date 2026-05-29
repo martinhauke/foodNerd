@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "pubDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "editDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "description": {
+      "type": "string"
+    },
+    "lang": {
+      "type": "string",
+      "enum": [
+        "de",
+        "en"
+      ]
+    },
+    "ingredientGroups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "ingredients": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "note": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "unit": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ]
+            }
+          }
+        },
+        "required": [
+          "name",
+          "ingredients"
+        ]
+      }
+    },
+    "image": {
+      "type": "object",
+      "properties": {
+        "src": {
+          "type": "string"
+        },
+        "alt": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "src",
+        "alt"
+      ]
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "isPublic": {
+      "default": false,
+      "type": "boolean"
+    },
+    "metaInformation": {
+      "type": "object",
+      "properties": {
+        "numberOfServings": {
+          "type": "number"
+        },
+        "timeNeeded": {
+          "type": "string",
+          "pattern": "(\\d+\\s)(min|h)"
+        },
+        "kcalPerServing": {
+          "type": "number"
+        },
+        "difficulty": {
+          "type": "string",
+          "enum": [
+            "difficulty.easy",
+            "difficulty.middle",
+            "difficulty.hard"
+          ]
+        }
+      },
+      "required": [
+        "numberOfServings",
+        "timeNeeded",
+        "difficulty"
+      ]
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "pubDate",
+    "editDate",
+    "lang",
+    "ingredientGroups",
+    "image",
+    "steps",
+    "metaInformation"
+  ]
+}
