@@ -8,7 +8,7 @@ export async function getStaticPaths() {
   return recipes
     .filter(recipe => recipe.data.isPublic)
     .map((it) => {
-      const [lang, ...slug] = it.slug.split('/')
+      const [lang, ...slug] = it.id.split('/')
       return {
         params: {
           lang,
